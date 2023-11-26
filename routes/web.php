@@ -41,3 +41,12 @@ Route::get('/view_quotations', function () {
     return view('user.quotationList');
 });
 
+
+
+Route::post('/admin/login', [AdminAuthController::class, 'login']);
+
+Route::get('/view_admin_request_quotations', function () {
+    return view('admin.reqQuotationList');
+});
+
+Route::get('/admin/logout', [AdminAuthController::class, 'logout'])->name('logout');

@@ -1,0 +1,1 @@
+console.log("reqQuotation.js is loading");

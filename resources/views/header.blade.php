@@ -2,6 +2,7 @@
     <head>
         <script src="https://code.jquery.com/jquery-3.7.0.js"></script>
         <link rel="stylesheet" type="text/css" href="assets/css/header_styles.css">
+		<link rel="stylesheet" href="assets/css/icofont.css">
 
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
         <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
@@ -32,11 +33,21 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu" style="float: right">
-											@auth 
-											<li><a href="/view_upload_prescription">Prescriptions</a></li>
-											@endauth
-											@auth 
-											<li><a href="/view_quotations">Quotations </a></li>
+											@auth
+												@if(auth()->user()->user_type === 'Admin')
+													<li>
+														<a href="#">
+															Quotations <i class="icofont-rounded-down"></i>
+														</a>
+														<ul class="dropdown">
+															<li><a href="/view_admin_request_quotations" style="font-size: 13px">Request Quotations</a></li>
+														</ul>
+													</li>
+												@elseif(auth()->user()->user_type != 'Admin') 
+													<li><a href="/view_upload_prescription">Prescriptions</a></li>
+													
+													<li><a href="/view_quotations">Quotations </a></li>
+												@endif
 											@endauth
 										</ul>
 									</nav>
@@ -56,8 +67,13 @@
                                         </div>
                                     </div>
 									@endguest
+
 									@auth
-                                    <a href="/user/logout"><button type="button" class="btn btn-primary btn-sm mt-1">Logout</button></a>
+										@if(auth()->user()->user_type === 'Admin')
+											<a href="/admin/logout"><button type="button" class="btn btn-primary btn-sm mt-1">Logout</button></a>
+										@elseif(auth()->user()->user_type != 'Admin') 
+											<a href="/user/logout"><button type="button" class="btn btn-primary btn-sm mt-1">Logout</button></a>
+										@endif
 									@endauth
 								</div>
 							</div>

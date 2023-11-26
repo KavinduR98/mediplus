@@ -28,12 +28,12 @@ class UserAuthController extends Controller
         try{
         
             $user = new User();
-            $user->cus_name = $request->get('name');
-            $user->cus_email = $request->get('email');
-            $user->cus_address = $request->get('address');
-            $user->cus_phone = $request->get('phone');
-            $user->cus_dob = $request->get('dob');
-            $user->cus_password = $request->get('password');
+            $user->name = $request->get('name');
+            $user->email = $request->get('email');
+            $user->address = $request->get('address');
+            $user->phone = $request->get('phone');
+            $user->dob = $request->get('dob');
+            $user->password = $request->get('password');
     
             if($user->save()){
                 return response()->json(["status" => 200, "redirect" => '/']);

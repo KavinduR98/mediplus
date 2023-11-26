@@ -1,23 +1,25 @@
 @extends('layout')
 @include('header')
-@section('content')
+
 
 <head></head>
 
 <body>
-    <div class="container">
-        <div class="row mt-3">
-            <h5>Quotation List</h5>
+    <div class="row m-3">
+        <div class="row">
+            <h5>Request Quotations List</h5>
         </div>
         <div class="row mt-3">
             <div class="col-md-12 col-sm-12">
-                <table class="table table-striped" id="tblQuotationList" >
+                <table class="table table-striped" id="tblReqQuotationList" >
                     <thead>
                         <tr>
                             <th>Id#</th>
+                            <th>Customer Name</th>
+                            <th>Phone</th>
                             <th>Created Date</th>
+                            <th>Quotation Status</th>
                             <th>View</th>
-                            <th>status</th>
                         </tr>
                     </thead>
                     <tbody></tbody>
@@ -27,4 +29,4 @@
     </div>
 </body>
 
-<script src="{{ asset('assets/js/user/quotation.js') }}"></script>
+<script src="{{ asset('assets/js/admin/reqQuotation.js') }}"></script>
