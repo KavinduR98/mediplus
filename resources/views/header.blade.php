@@ -32,8 +32,12 @@
 								<div class="main-menu">
 									<nav class="navigation">
 										<ul class="nav menu" style="float: right">
-											<li><a href="#">Prescriptions </a></li>
-											<li><a href="#">Quotations </a></li>
+											@auth 
+											<li><a href="/view_upload_prescription">Prescriptions</a></li>
+											@endauth
+											@auth 
+											<li><a href="/view_quotations">Quotations </a></li>
+											@endauth
 										</ul>
 									</nav>
 								</div>
@@ -41,6 +45,7 @@
 							</div>
 							<div class="col-lg-2 col-12">
 								<div class="get-quote">
+									@guest
                                     <div class="dropdown">
                                         <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="float: right">
                                           Login
@@ -49,7 +54,11 @@
                                           <a class="dropdown-item" href="/">User</a>
                                           <a class="dropdown-item" href="/view_admin_register">Admin</a>
                                         </div>
-                                      </div>
+                                    </div>
+									@endguest
+									@auth
+                                    <a href="/user/logout"><button type="button" class="btn btn-primary btn-sm mt-1">Logout</button></a>
+									@endauth
 								</div>
 							</div>
 						</div>

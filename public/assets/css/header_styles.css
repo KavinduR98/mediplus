@@ -33,7 +33,7 @@ body{
 	z-index: 99998;
 	padding: 20px;
 	width: 245px;
-	background: #fff;
+	background: #ffffff;
 	right: -245px;
 	text-align: left;
 	top: 30%;
@@ -128,7 +128,7 @@ body{
 	Start Header CSS 
 =====================*/
 .header{
-	background-color:#fff;
+	background-color:#ffffff;
 	position:relative;
 }
 .header .navbar-collapse{
@@ -182,7 +182,7 @@ body{
 	margin-right:8px;
 }
 .header .header-inner {
-	background:#fff;
+	background:#f7f8fa;
 	z-index:999;
 	width:100%;
 }

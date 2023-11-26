@@ -21,7 +21,7 @@ class UserAuthController extends Controller
         return view('user.userRegister');
     }
 
-
+    //User Register 
     public function register(Request $request)
     {
 
@@ -46,7 +46,7 @@ class UserAuthController extends Controller
         }
     }
 
-
+    // User Login
     public function login(Request $request){
 
         try {
@@ -65,6 +65,15 @@ class UserAuthController extends Controller
         } catch(Exception $ex) {
             return $ex;
         }
+    }
+
+    // User Logout
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 
 }

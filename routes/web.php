@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserAuthController;
 use App\Http\Controllers\AdminAuthController;
+use App\Http\Controllers\PrescriptionController;
 
 
 /*
@@ -29,3 +30,14 @@ Route::post('/user/login', [UserAuthController::class, 'login']);
 Route::get('/view_upload_prescription', function () {
     return view('user.uploadPrescription');
 });
+
+Route::get('/user/logout', [UserAuthController::class, 'logout'])->name('logout');
+
+Route::post('/user/upload_prescription', [PrescriptionController::class, 'upload_prescription']);
+Route::get('/user/allPrescription', [PrescriptionController::class, 'allPrescription']);
+Route::get('/user/prescription/get_data/{id}', [PrescriptionController::class, 'get_data']);
+
+Route::get('/view_quotations', function () {
+    return view('user.quotationList');
+});
+
